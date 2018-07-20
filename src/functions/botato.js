@@ -1,55 +1,35 @@
-import {jokes} from './modules/jokes'
+import cases from './modules/cases';
 
 exports.handler = async (event, context) => {
   
-  let command = '';
+  let text = '';
 
   console.log('event', event);
 
-  const genericError = {
-    headers: {
-      "content-type": "application/json"
-    },
-    statusCode: 200,
-    body: JSON.stringify({
-      response_type: "in_channel",
-      text: `It didn't work. Try harder.`
-    })
-  };
-
-  if(event && event.queryStringParameters && event.queryStringParameters.text) {
-      command = event.queryStringParameters.text
-  } else {
-    return genericError;
-  }
-
-  const jokeRegex = /tell a (.*) joke/i
-  const res = jokeRegex.exec(command)
-  const subject = res ? res[1] : null;
-
-  if (jokes[subject]) {
-    let jokesLength = jokes[subject].length
-    let jokeIndex = Math.floor(Math.random() * jokesLength)
-    let currentJoke = jokes[subject][jokeIndex]
-    let jokeParts = [];
-
-    for (let jokePart of currentJoke) {
-      jokeParts.push({
-        text: jokePart
-      })
-    }
-
+  function genericError (text) {
     return {
       headers: {
         "content-type": "application/json"
       },
       statusCode: 200,
       body: JSON.stringify({
-        response_type: "in_channel",
-        attachments: jokeParts
+        response_type: "ephemeral",
+        text: text || 'It didn\'t work. Try `/b help`.'
       })
-    };
+    }
+  };
+
+  if(event && event.queryStringParameters && event.queryStringParameters.text) {
+      text = event.queryStringParameters.text
   } else {
-    return genericError;
+    return genericError()
+  }
+
+  let command = text.split(' ')[0];
+
+  if(cases[command]) {
+    return cases[command](text, genericError)
+  } else {
+    return genericError()
   }
 }
