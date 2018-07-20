@@ -10,7 +10,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
   data () {
     return {
-      title: 'A collection of Lambda Functions'
+      title: 'Benvingut a Hack.cat. Contingut per venir després.'
     }
   }
 })
