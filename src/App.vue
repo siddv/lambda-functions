@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <h1>{{title}}</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
 
 @Component({
-  components: {
-    HelloWorld,
-  },
+  data () {
+    return {
+      title: 'A collection of Lambda Functions'
+    }
+  }
 })
 export default class App extends Vue {}
 </script>
