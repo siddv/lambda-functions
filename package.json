@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && cp -a ./src/functions/. ./dist/functions",
+    "build": "vue-cli-service build && netlify-lambda build ./src/functions",
     "functions": "netlify-lambda serve ./src/functions"
   },
   "dependencies": {
