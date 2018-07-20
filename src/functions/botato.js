@@ -4,11 +4,13 @@ exports.handler = async (event, context) => {
   
   let command = '';
 
+  console.log('event', event);
+
   const genericError = {
     headers: {
       "content-type": "application/json"
     },
-    statusCode: 400,
+    statusCode: 200,
     body: JSON.stringify({
       response_type: "in_channel",
       text: `It didn't work. Try harder.`
