@@ -1,4 +1,5 @@
 module.exports = {
+  theme: 'api',
   locales: {
     '/': {
       lang: 'en-GB',
@@ -14,22 +15,12 @@ module.exports = {
   themeConfig: {
     locales: {
       '/': {
-        selectText: 'English',
+        selectText: 'Languages',
         label: 'English',
-        editLinkText: 'Edit on Github',
-        sidebar: {
-          '/': [/* ... */],
-          '/nested/': [/* ... */]
-        }
       },
       '/ca/': {
-        selectText: 'Catalan',
+        selectText: 'Llengües',
         label: 'Catalan',
-        editLinkText: 'Edita a Github',
-        sidebar: {
-          '/ca/': [/* ... */],
-          '/ca/nested/': [/* ... */]
-        }
       }
     }
   }
