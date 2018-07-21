@@ -8,18 +8,9 @@
     "functions": "netlify-lambda serve ./src/functions"
   },
   "dependencies": {
-    "vue": "^2.5.16",
-    "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^7.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.5",
-    "@vue/cli-plugin-typescript": "^3.0.0-rc.5",
-    "@vue/cli-service": "^3.0.0-rc.5",
-    "netlify-lambda": "^0.4.0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.16"
+    "netlify-lambda": "^0.4.0"
   },
   "postcss": {
     "plugins": {
