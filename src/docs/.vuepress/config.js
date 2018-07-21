@@ -1,14 +1,36 @@
 module.exports = {
   locales: {
     '/': {
-      lang: 'English', // this will be set as the lang attribute on <html>
+      lang: 'en-GB',
       title: `Sidd's Lambda Functions`,
       description: 'A collection of Lambda Functions built by Sidd'
     },
     '/ca/': {
-      lang: 'Catalan',
+      lang: 'ca-ES',
       title: 'Funcions Lambda del Sidd',
       description: 'Una col · lecció de Funcions Lambda construïda per Sidd'
+    }
+  },
+  themeConfig: {
+    locales: {
+      '/': {
+        selectText: 'English',
+        label: 'English',
+        editLinkText: 'Edit on Github',
+        sidebar: {
+          '/': [/* ... */],
+          '/nested/': [/* ... */]
+        }
+      },
+      '/ca/': {
+        selectText: 'Catalan',
+        label: 'Catalan',
+        editLinkText: 'Edita a Github',
+        sidebar: {
+          '/ca/': [/* ... */],
+          '/ca/nested/': [/* ... */]
+        }
+      }
     }
   }
 }
