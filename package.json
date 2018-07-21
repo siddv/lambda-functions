@@ -5,8 +5,9 @@
   "scripts": {
     "docs:dev": "vuepress dev src/docs",
     "docs:build": "vuepress build src/docs",
-    "build": "netlify-lambda build ./src/functions && vuepress build src/docs && mv ./src/docs/.vuepress/dist/* ./dist/",
-    "functions": "netlify-lambda serve ./src/functions"
+    "functions:dev": "netlify-lambda serve ./src/functions",
+    "functions:build": "netlify-lambda build ./src/functions",
+    "build": "yarn functions:build && yarn docs:build && mv ./src/docs/.vuepress/dist/* ./dist/"
   },
   "dependencies": {},
   "devDependencies": {
