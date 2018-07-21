@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "docs:dev": "vuepress dev src/docs",
-    "build": "vuepress build src/docs && netlify-lambda build ./src/functions",
+    "docs:build": "vuepress build src/docs",
+    "build": "netlify-lambda build ./src/functions && vuepress build src/docs && mv ./src/docs/.vuepress/dist/* ./dist/",
     "functions": "netlify-lambda serve ./src/functions"
   },
   "dependencies": {},
