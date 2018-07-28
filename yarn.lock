@@ -6819,9 +6819,9 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-"vuepress-theme-api@git://github.com/siddv/vuepress-theme-api.git#feature/improved-language-selection":
-  version "0.1.1"
-  resolved "git://github.com/siddv/vuepress-theme-api.git#5bb3d27422b7414bc69a18abc57f8a54677c230b"
+vuepress-theme-api@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vuepress-theme-api/-/vuepress-theme-api-0.2.0.tgz#fdcb6ee80805b0ee7d18c0b32b322ff227b23986"
   dependencies:
     axios "^0.18.0"
 
