@@ -1,17 +1,18 @@
 exports.handler = async (event, context) => {
   
-    let min = 18;
+    let min = 75;
+    let text = '';
     let error = '';
     let rolledCharacter = {}
   
+    /*
+     * provide literally any value to a 'text' GET param to do a 'true random' roll,
+     * else it'll follow the rules specified here: https://rosettacode.org/wiki/RPG_Attributes_Generator
+     * 
+     * In the case of Slack usage /[command] [literally anything] will provide a true random roll
+     */
     if(event && event.queryStringParameters && event.queryStringParameters.text) {
-      const userMin = parseInt(event.queryStringParameters.text)
-  
-      if(!isNaN(userMin) && userMin >= 18 && userMin <= 90) {
-        min = userMin;
-      } else {
-        error = 'Please specify a number between 18 and 90 (until I figure out a better solution) e.g. `/randchar 75`'
-      }
+      text = event.queryStringParameters.text
     }
   
     function rollChar () {
@@ -49,13 +50,13 @@ exports.handler = async (event, context) => {
     }
     
     if(!error.length) {
-      
       rolledCharacter = rollChar();
     
-      while(rolledCharacter.total <= min){
-        rolledCharacter = rollChar();
+      if(!text.length) {
+        while(rolledCharacter.total <= min || rolledCharacter.rolls.filter(val => val >= 15).length < 2){
+          rolledCharacter = rollChar();
+        }
       }
-  
     }
   
     return {
@@ -65,7 +66,7 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       body: JSON.stringify({
         response_type: "in_channel",
-        text: error.length ? '' : `Total: *${rolledCharacter.total}*\nRolls: *${rolledCharacter.rolls.sort((a,b) => b>a).join('*, *')}*`,
+        text: error.length ? '' : `Total: *${rolledCharacter.total}*\nRolls: *${rolledCharacter.rolls.join('*, *')}*`,
         attachments: [
           {
             text: error.length ? '' : `${rolledCharacter.details}`
