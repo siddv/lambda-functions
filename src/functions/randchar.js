@@ -43,7 +43,6 @@ exports.handler = async (event, context) => {
         randchar.total += rollTotal;
       }
     
-      randchar.rollDetails.sort((a,b) => b.total > a.total);
       randchar.rollDetails.forEach(val => randchar.details += `${val.details}\n`)
   
       return randchar;
