@@ -1,4 +1,4 @@
-import cases from './modules/cases';
+import cases from './modules/botato/cases';
 
 exports.handler = async (event, context) => {
   
