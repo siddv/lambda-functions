@@ -9,8 +9,12 @@
     "functions:build": "netlify-lambda build ./src/functions",
     "build": "yarn functions:build && yarn docs:build && mv ./src/docs/.vuepress/dist/* ./dist/"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sign-bunny": "^1.0.0",
+    "stripe": "^6.4.0"
+  },
   "devDependencies": {
+    "dotenv": "^6.0.0",
     "netlify-lambda": "^0.4.0",
     "vuepress": "^0.12.0",
     "vuepress-theme-api": "^0.2.0"
