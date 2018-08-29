@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
     statusCode: 200,
     body: JSON.stringify({
       response_type: err ? 'ephemeral' : 'in_channel',
-      text: `${response}`
+      text: '```'+response+'```'
     })
   };
 
