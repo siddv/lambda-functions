@@ -5,8 +5,8 @@
   "scripts": {
     "docs:dev": "vuepress dev src/docs",
     "docs:build": "vuepress build src/docs",
-    "functions:dev": "netlify-lambda serve ./src/functions",
-    "functions:build": "netlify-lambda build ./src/functions",
+    "functions:dev": "netlify-lambda serve ./src/functions --config ./webpack.functions.js",
+    "functions:build": "netlify-lambda build ./src/functions --config ./webpack.functions.js",
     "build": "yarn functions:build && yarn docs:build && mv ./src/docs/.vuepress/dist/* ./dist/"
   },
   "dependencies": {
@@ -14,8 +14,10 @@
     "stripe": "^6.4.0"
   },
   "devDependencies": {
+    "csv-loader": "^3.0.2",
     "dotenv": "^6.0.0",
     "netlify-lambda": "^0.4.0",
+    "papaparse": "^5.0.2",
     "vuepress": "^0.12.0",
     "vuepress-theme-api": "^0.2.0"
   },
