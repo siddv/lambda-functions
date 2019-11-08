@@ -3,7 +3,7 @@ exports.handler = async (event, context) => {
   let err = true;
 
   if(event && event.queryStringParameters && event.queryStringParameters.text) {
-    response = `https://giphy.com/search/${event.queryStringParameters.text}`
+    response = `https://giphy.com/search/${encodeURIComponent(event.queryStringParameters.text)}`
     err = false;
   }
 
