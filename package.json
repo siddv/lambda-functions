@@ -9,9 +9,9 @@
     "functions:build": "netlify-lambda build ./src/functions --config ./webpack.functions.js",
     "build": "yarn functions:build && yarn docs:build && mv ./src/docs/.vuepress/dist/* ./dist/"
   },
- "engines" : { 
+  "engines" : { 
     "node" : ">=16.0.0 <17.0.0"
-  }
+  },
   "dependencies": {
     "sign-bunny": "^1.0.0",
     "stripe": "^6.4.0"
