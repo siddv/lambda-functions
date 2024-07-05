@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
 
   if (event && event.queryStringParameters && event.queryStringParameters.chance && event.queryStringParameters.drops) {
     statusCode = 200;
-    const successes = runec(event.queryStringParameters.chance,  event.queryStringParameters.drops);
+    const successes = runec(Number(event.queryStringParameters.chance),  Number(event.queryStringParameters.drops));
     responseBody = { successes };
   }
 
