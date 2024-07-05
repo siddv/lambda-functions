@@ -6,7 +6,7 @@
     const interation = Math.floor(Math.random() * chance + 1);
     if (interation === chance) {
       successes.push(i);
-      if(successes.length === dropsNeeded) {
+      if(successes.length === drops) {
         run = false;
       }
     }
