@@ -30,6 +30,6 @@ exports.handler = async (event, context) => {
       "content-type": "application/json"
     },
     statusCode: 200,
-    body:  JSON.stringify(response),
+    body:  JSON.stringify(responseBody),
   };
 };
