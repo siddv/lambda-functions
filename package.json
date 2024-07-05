@@ -9,6 +9,9 @@
     "functions:build": "netlify-lambda build ./src/functions --config ./webpack.functions.js",
     "build": "yarn functions:build && yarn docs:build && mv ./src/docs/.vuepress/dist/* ./dist/"
   },
+  "engines" : { 
+    "node" : ">=16.0.0 <17.0.0"
+  },
   "dependencies": {
     "sign-bunny": "^1.0.0",
     "stripe": "^6.4.0"
@@ -18,8 +21,8 @@
     "dotenv": "^6.0.0",
     "netlify-lambda": "^0.4.0",
     "papaparse": "^5.2.0",
-    "vuepress": "^0.12.0",
-    "vuepress-theme-api": "^0.2.0"
+    "vuepress": "^1.9.2",
+    "vuepress-theme-api": "^1.0.1"
   },
   "postcss": {
     "plugins": {
