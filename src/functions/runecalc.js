@@ -13,11 +13,11 @@
     i++;
   }
   return successes;
-}
+};
 
 exports.handler = async (event, context) => {
   let statusCode = 400;
-  let responseBody { error: 'please make sure you\'ve specified "chance" and "drops" query params' };
+  let responseBody = { error: 'please make sure you\'ve specified "chance" and "drops" query params' };
 
   if (event && event.queryStringParameters && event.queryStringParameters.chance && event.queryStringParameters.drops) {
     statusCode = 200;
@@ -32,4 +32,4 @@ exports.handler = async (event, context) => {
     statusCode: 200,
     body:  JSON.stringify(response),
   };
-}
+};
